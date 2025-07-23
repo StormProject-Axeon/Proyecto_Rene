@@ -1,1 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBANFIT 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/paguina-de-todos.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="contact-info">
+            <p><i class="fab fa-whatsapp"></i> +503 6921-2302</p>
+            <p><i class="fas fa-phone-alt"></i> +503 2435-6734</p>
+        </div>
+        <div class="logo">
+            <img src="../img/logo de paguina web2.png" alt="URBANFIT Logo">
+        </div>
+        <div class="search-bar">
+            <span>Buscar</span>
+            <input type="text" id="searchInput" placeholder="¿Qué estás buscando?" onkeyup="searchProducts()">
+        </div>
+        <div class="user-actions">
+            <a href="" class="user-action-btn"><i class="fas fa-shopping-cart"></i> Carrito</a>
+            <a href="#" class="user-action-btn"><i class="fas fa-user"></i> Cuenta</a>
+        </div>
+        <nav class="nav-menu">
+            <a href="paguina-principal.html" class="nav-item home">
+                <span>Inicio</span>
+            </a>
+            <a href="paguina-hombres.html" class="nav-item others">
+                <span>Hombres</span>
+            </a>
 
+            <a href="paguina-mujeres.html" class="nav-item others">
+                <span>Mujeres</span>
+            </a>
+            <a href="paguina-infantil.html" class="nav-item others">
+                <span>Infantiles</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Recommended Products Section -->
+    <section class="recommended-section">
+    <h2 class="section-title" id="sectionTitle">¡Recomendados para ti!</h2>
+    <div class="recommended-grid" id="productGrid">
+
+        <a href="rt-figther.html" class="product-card">
+            <img class="img1" src="../img/rt fighter_frente.jpg" alt="RT Fighter">
+            <h3 class="product-name">RT Fighter</h3>
+            <p class="product-price"><span class="discount-price">$28.50</span> <span class="original-price">$94</span></p>
+        </a>
+
+        <a href="magic.html" class="product-card">
+            <img class="img1" src="../img/magic nt_lado.jpg" alt="Magic NT">
+            <h3 class="product-name">MAGIC NT</h3>
+            <p class="product-price">$30.40</p>
+        </a>
+
+        <a href="Cof.html" class="product-card">
+            <img src="../img/cof life_frente.jpg" alt="CQF Life">
+            <h3 class="product-name">CQF Life</h3>
+            <p class="product-price">$32.80</p>
+        </a>
+
+        <a href="polar.html" class="product-card">
+            <img src="../img/polar ln_lado.jpg" alt="Polar LM">
+            <h3 class="product-name">POLAR LM</h3>
+            <p class="product-price"><span class="discount-price">$30.00</span> <span class="original-price">$50.50</span></p>
+        </a>
+
+        <a href="Loki.html" class="product-card">
+            <img src="../img/loki wt_lado.jpg" alt="Loki WT">
+            <h3 class="product-name">Loki WT</h3>
+            <p class="product-price">$26.75</p>
+        </a>
+
+        <a href="blue.html" class="product-card">
+            <img src="../img/blue arc_lado.jpg" alt="Blue Arc">
+            <h3 class="product-name">BLUE ARC</h3>
+            <p class="product-price">$30.50</p>
+        </a>
+
+        <a href="fire.html" class="product-card">
+            <img src="../img/fire tt_frente.jpg" alt="Fire TT">
+            <h3 class="product-name">FIRE TT</h3>
+            <p class="product-price"><span class="discount-price">$16.30</span> <span class="original-price">$21.00</span></p>
+        </a>
+
+        <a href="l.g.html" class="product-card">
+            <img src="../img/l gant_frente.jpg" alt="L.OANT">
+            <h3 class="product-name">L.GANT</h3>
+            <p class="product-price"><span class="discount-price">$20.00</span> <span class="original-price">$24.15</span></p>
+        </a>
+
+    </div>
+    <div id="noResults" class="no-results" style="display: none;"><i class="fas fa-search"></i> No se encontraron resultados</div>
+</section>
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">
+            URBANFIT 2025. Derechos reservados. Envío a todo el país. Contacto: +503 2435-6734
+        </p>
+    </footer>
+
+<script>
+    // Lista global de todos los productos
+    const allProducts = [
+        { name: "RT Fighter", category: "Hombres", price: "$28.50", image: "../img/rt fighter_frente.jpg" },
+        { name: "MAGIC NT", category: "Hombres", price: "$30.40", image: "../img/magic nt_lado.jpg" },
+        { name: "CQF Life", category: "Hombres", price: "$32.80", image: "../img/cof life_frente.jpg" },
+        { name: "POLAR LM", category: "Hombres", price: "$30.00", image: "../img/polar ln_lado.jpg" },
+        { name: "Loki WT", category: "Hombres", price: "$26.75", image: "../img/loki wt_lado.jpg" },
+        { name: "BLUE ARC", category: "Hombres", price: "$30.50", image: "../img/blue arc_lado.jpg" },
+        { name: "FIRE TT", category: "Hombres", price: "$2.50", image: "../img/fire tt_frente.jpg" },
+        { name: "L.GANT", category: "Hombres", price: "$20.00", image: "../img/l gant_frente.jpg" },
+        { name: "Pink N", category: "Mujeres", price: "$22.50", image: "../img/pink n_frente.jpg" },
+        { name: "Purple PP", category: "Mujeres", price: "$30.00", image: "../img/purple pp_frente.jpg" },
+        { name: "New Y", category: "Mujeres", price: "$60.00", image: "../img/new y.jpg" },
+        { name: "Happy", category: "Mujeres", price: "$60.99", image: "../img/happy_frente.jpg" },
+        { name: "Celestial", category: "Mujeres", price: "$15.99", image: "../img/celestial_frente.jpg" },
+        { name: "Brightness", category: "Mujeres", price: "$35.99", image: "../img/brightness_frente.jpg" },
+        { name: "Kitty H", category: "Mujeres", price: "$55.65", image: "../img/kitty h_frente.jpg" },
+        { name: "Nike NK", category: "Mujeres", price: "$80.95", image: "../img/nike nk_frente.jpg" },
+        { name: "MC Light", category: "Infantiles", price: "$15.99", image: "../img/mc lighting_frente.jpg" },
+        { name: "FG Shark", category: "Infantiles", price: "$14.49", image: "../img/fg shark_frente.jpg" },
+        { name: "Net Spiderman", category: "Infantiles", price: "$16.50", image: "../img/net spider_frente.jpg" },
+        { name: "Polk Pony", category: "Infantiles", price: "$11.00", image: "../img/polk pony_frente.jpg" },
+        { name: "Electro Snap", category: "Hombres", price: "$18.35", image: "../img/electro snap_lado.jpg" },
+        { name: "Rainbow CR", category: "Mujeres", price: "$13.50", image: "../img/rainbow cr_lado.jpg" },
+        { name: "Emal Smile", category: "Mujeres", price: "$12.00", image: "../img/emal smile_lado.jpg" },
+        { name: "Pink Glam", category: "Mujeres", price: "$14.40", image: "../img/pink glam_lado.jpg" },
+        { name: "Storm Raider", category: "Hombres", price: "$30.99", image: "../img/storm raider_lado.jpg" },
+        { name: "Hexa Navy", category: "Hombres", price: "$30.40", image: "../img/hexa navy_lado.jpg" },
+        { name: "Red Blaze", category: "Hombres", price: "$38.99", image: "../img/red blaze_lado.jpg" },
+        { name: "Desert Nomad", category: "Hombres", price: "$37.99", image: "../img/desert nomad_lado.jpg" },
+        { name: "Shadow Hole", category: "Hombres", price: "$40.00", image: "../img/shadow hole_lado.jpg" },
+        { name: "Eco Explorer", category: "Hombres", price: "$39.99", image: "../img/eco explorer_lado.jpg" },
+        { name: "Urban Sunset", category: "Mujeres", price: "$37.80", image: "../img/urban sunset_lado.jpg" },
+        { name: "Gold Hype", category: "Mujeres", price: "$42.99", image: "../img/gold hype_lado.jpg" }
+    ];
+
+    function searchProducts() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let productCards = document.getElementsByClassName("product-card");
+        let sectionTitle = document.getElementById("sectionTitle");
+        let noResults = document.getElementById("noResults");
+        let found = false;
+
+        // Si el input está vacío, mostrar todos los productos de la página
+        if (input === "") {
+            for (let i = 0; i < productCards.length; i++) {
+                productCards[i].style.display = "";
+            }
+            sectionTitle.style.display = "";
+            noResults.style.display = "none";
+            return;
+        }
+
+        // Ocultar todos los productos primero
+        for (let i = 0; i < productCards.length; i++) {
+            productCards[i].style.display = "none";
+        }
+
+        // Buscar coincidencias locales con al menos una letra
+        for (let i = 0; i < productCards.length; i++) {
+            let cardName = productCards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+            if (cardName.includes(input)) {
+                productCards[i].style.display = "";
+                found = true;
+            }
+        }
+
+        if (found) {
+            sectionTitle.style.display = "";
+            noResults.style.display = "none";
+        } else {
+            sectionTitle.style.display = "none";
+            noResults.style.display = "block";
+        }
+    }
+
+    // Redirigir al presionar Enter (búsqueda global)
+    document.getElementById("searchInput").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            let input = this.value.toLowerCase();
+            let product = allProducts.find(p => p.name.toLowerCase().includes(input));
+            if (product) {
+                let categoryPage = {
+                    "hombres": "paguina-hombres.html",
+                    "mujeres": "paguina-mujeres.html",
+                    "infantiles": "paguina-infantil.html"
+                };
+                window.location.href = categoryPage[product.category.toLowerCase()];
+            } else {
+                alert("Producto no encontrado");
+            }
+        }
+    });
+</script>
+<!-- Modal del carrito -->
+<div id="cartModal" class="cart-modal" style="display: none;">
+  <div class="cart-content">
+    <span class="close" onclick="closeCartModal()">&times;</span>
+    <h2>Tu Carrito</h2>
+    <div id="cartItemsContainer" class="cart-items"></div>
+    <h3 id="cartTotal">Total: $0.00</h3>
+    <button onclick="checkout()">Finalizar Compra</button>
+  </div>
+</div>
+
+<!-- Script del carrito -->
+<script>
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function addToCart(nombre, precio, imagen) {
+    const index = cart.findIndex(p => p.nombre === nombre);
+    if (index !== -1) {
+      cart[index].cantidad++;
+    } else {
+      cart.push({ nombre, precio, imagen, cantidad: 1 });
+    }
+    saveCart();
+    updateCartCounter();
+  }
+
+  function showCartModal() {
+    renderCartItems();
+    document.getElementById("cartModal").style.display = "block";
+  }
+
+  function closeCartModal() {
+    document.getElementById("cartModal").style.display = "none";
+  }
+
+  function increaseQuantity(index) {
+    cart[index].cantidad++;
+    saveCart();
+    renderCartItems();
+  }
+
+  function decreaseQuantity(index) {
+    if (cart[index].cantidad > 1) {
+      cart[index].cantidad--;
+    } else {
+      cart.splice(index, 1);
+    }
+    saveCart();
+    renderCartItems();
+  }
+
+  function renderCartItems() {
+    const container = document.getElementById("cartItemsContainer");
+    container.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      total += parseFloat(item.precio) * item.cantidad;
+
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "cart-item";
+      itemDiv.innerHTML = `
+        <img src="${item.imagen}" alt="${item.nombre}" width="60">
+        <div>
+          <h4>${item.nombre}</h4>
+          <p>$${parseFloat(item.precio).toFixed(2)} x ${item.cantidad}</p>
+        </div>
+        <div class="quantity-controls">
+          <button onclick="decreaseQuantity(${index})">−</button>
+          <span>${item.cantidad}</span>
+          <button onclick="increaseQuantity(${index})">+</button>
+        </div>
+      `;
+      container.appendChild(itemDiv);
+    });
+
+    document.getElementById("cartTotal").innerText = `Total: $${total.toFixed(2)}`;
+    updateCartCounter();
+  }
+
+  function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  function updateCartCounter() {
+    const count = cart.reduce((sum, item) => sum + item.cantidad, 0);
+    const badge = document.querySelector(".fa-shopping-cart + span") || document.createElement("span");
+    badge.className = "cart-counter";
+    badge.innerText = count;
+    const link = document.querySelector(".fa-shopping-cart").parentNode;
+    if (!badge.parentNode) link.appendChild(badge);
+  }
+
+  function checkout() {
+    alert("Gracias por tu compra. Próximamente te contactaremos.");
+    cart = [];
+    saveCart();
+    renderCartItems();
+    updateCartCounter();
+    closeCartModal();
+  }
+
+  // Iniciar contador al cargar
+  updateCartCounter();
+</script>
+<script src="../js/carrito.js"></script>
+</body>
+</html>
