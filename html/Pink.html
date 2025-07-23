@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RT FIGHTER - MacBook Pro 16"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <link rel="stylesheet" href="../css/vista gorra.css"/>
+</head>
+<body class="show-offer">
+    <!-- Header -->
+    <header class="header">
+        <div class="back-arrow" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="logo">
+            <img src="../img/logo de paguina web2.png" alt="Logo de la tienda" id="logoImage" />
+        </div>
+        <div class="cart-icon" onclick="showCartModal()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCounter">0</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Product Images -->
+        <div class="image-section">
+            <div class="main-image">
+                <img id="mainProductImage" src="../img/pink glam_lado.jpg" alt="RT FIGHTER" />
+            </div>
+            <div class="thumbnails">
+                <div class="thumbnail" onclick="changeMainImage('https://via.placeholder.com/600x400?text=Vista+Frontal')">
+                    <img src="../img/pink glam_frente.jpg" alt="Vista Frontal" />
+                </div>
+                <div class="thumbnail" onclick="changeMainImage('https://via.placeholder.com/600x400?text=Vista+Lateral')">
+                    <img src="../img/pink glam_atras.jpg" alt="Vista Lateral" />
+                </div>
+                <div class="thumbnail" onclick="changeMainImage('https://via.placeholder.com/600x400?text=Vista+Posterior')">
+                    <img src="../img/pink glam_lado.jpg" alt="Vista Posterior" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="info-section">
+            <h1 class="product-title">Pink glam</h1>
+            <div class="price-section">
+          
+                <div class="current-price">$14.00</div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="buttons-section">
+                <div class="action-btn add-to-cart-btn" onclick="addToCart()">Agregar al carrito</div>
+                <div class="action-btn buy-now-btn" onclick="buyNow()">Comprar ahora</div>
+            </div>
+
+            <!-- Delivery Info -->
+            <div class="delivery-info">
+                <p class="delivery-time">El tiempo en que su pedido llega será dependiendo del lugar de envío.</p>
+                <p class="payment-info">Pago con tarjeta o efectivo. Normalmente siempre se tarda 2 horas en estar listo el pedido.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">URBANFIT 2025. Derechos reservados. Envío a todo el país. contacto: +503 2435-6734</p>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCartModal()">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="cartItemsContainer"></div>
+            <div class="cart-total" id="cartTotal">Total: $0.00</div>
+            <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <script src="../js/carrito.js"></script>
+</body>
+</html>

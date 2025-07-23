@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBANFIT 2025</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/paguina-de-todos.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="contact-info">
+            <p><i class="fab fa-whatsapp"></i> +503 6921-2302</p>
+            <p><i class="fas fa-phone-alt"></i> +503 2435-6734</p>
+        </div>
+        <div class="logo">
+            <img src="../img/logo de paguina web2.png" alt="URBANFIT Logo">
+        </div>
+        <div class="search-bar">
+            <span>Buscar</span>
+            <input type="text" id="searchInput" placeholder="¿Qué estás buscando?" onkeyup="searchProducts()">
+        </div>
+        <div class="user-actions">
+            <a href="carrito.html" class="user-action-btn"><i class="fas fa-shopping-cart"></i> Carrito</a>
+            <a href="#" class="user-action-btn"><i class="fas fa-user"></i> Cuenta</a>
+        </div>
+        <nav class="nav-menu">
+            <a href="paguina-principal.html" class="nav-item home">
+                <span>Inicio</span>
+            </a>
+            <a href="paguina-hombres.html" class="nav-item others">
+                <span>Hombres</span>
+            </a>
+            <a href="paguina-mujeres.html" class="nav-item others">
+                <span>Mujeres</span>
+            </a>
+            <a href="paguina-infantil.html" class="nav-item others">
+                <span>Infantiles</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Recommended Products Section -->
+   <section class="recommended-section">
+    <div class="recommended-grid" id="productGrid">
+
+        <a href="mc.html" class="product-card">
+            <img src="../img/mc lighting_frente.jpg" alt="MC Light">
+            <h3 class="product-name">MC Light</h3>
+            <p class="product-price">$15.99</p>
+        </a>
+
+        <a href="Shark.html" class="product-card">
+            <img src="../img/fg shark_frente.jpg" alt="FG Shark">
+            <h3 class="product-name">FG Shark</h3>
+            <p class="product-price"><span class="discount-price">$14.49</span> <span class="original-price">$17.99</span></p>
+        </a>
+
+        <a href="Spider.html" class="product-card">
+            <img src="../img/net spider_frente.jpg" alt="Net Spiderman">
+            <h3 class="product-name">Net Spiderman</h3>
+            <p class="product-price">$16.50</p>
+        </a>
+
+        <a href="pony.html" class="product-card">
+            <img src="../img/polk pony_frente.jpg" alt="Polk Pony">
+            <h3 class="product-name">Polk Pony</h3>
+            <p class="product-price"><span class="discount-price">$11.00</span> <span class="original-price">$14.75</span></p>
+        </a>
+
+        <a href="Cr.html" class="product-card">
+            <img src="../img/rainbow cr_lado.jpg" alt="Rainbow CR">
+            <h3 class="product-name">Rainbow CR</h3>
+            <p class="product-price"><span class="discount-price">$13.50</span> <span class="original-price">$19.85</span></p>
+        </a>
+
+        <a href="snap.html" class="product-card">
+            <img src="../img/electro snap_lado.jpg" alt="Electro Snap">
+            <h3 class="product-name">Electro Snap</h3>
+            <p class="product-price">$18.35</p>
+        </a>
+
+        <a href="Emal.html" class="product-card">
+            <img src="../img/emal smile_lado.jpg" alt="Emal Smile">
+            <h3 class="product-name">Emal Smile</h3>
+            <p class="product-price">$12.00</p>
+        </a>
+
+        <a href="Pink.html" class="product-card">
+            <img src="../img/pink glam_lado.jpg" alt="Pink Glam">
+            <h3 class="product-name">Pink Glam</h3>
+            <p class="product-price">$14.40</p>
+        </a>
+
+    </div>
+    <div id="noResults" class="no-results" style="display: none;">
+        <i class="fas fa-search"></i> No se encontraron resultados
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">
+            URBANFIT 2025. Derechos reservados. Envío a todo el país. Contacto: +503 2435-6734
+        </p>
+    </footer>
+
+  <script>
+    // Lista global de todos los productos
+    const allProducts = [
+        { name: "RT Fighter", category: "Hombres", price: "$28.50", image: "../img/rt fighter_frente.jpg" },
+        { name: "MAGIC NT", category: "Hombres", price: "$30.40", image: "../img/magic nt_lado.jpg" },
+        { name: "CQF Life", category: "Hombres", price: "$32.80", image: "../img/cof life_frente.jpg" },
+        { name: "POLAR LM", category: "Hombres", price: "$30.00", image: "../img/polar ln_lado.jpg" },
+        { name: "Loki WT", category: "Hombres", price: "$26.75", image: "../img/loki wt_lado.jpg" },
+        { name: "BLUE ARC", category: "Hombres", price: "$30.50", image: "../img/blue arc_lado.jpg" },
+        { name: "FIRE TT", category: "Hombres", price: "$2.50", image: "../img/fire tt_frente.jpg" },
+        { name: "L.GANT", category: "Hombres", price: "$20.00", image: "../img/l gant_frente.jpg" },
+        { name: "Pink N", category: "Mujeres", price: "$22.50", image: "../img/pink n_frente.jpg" },
+        { name: "Purple PP", category: "Mujeres", price: "$30.00", image: "../img/purple pp_frente.jpg" },
+        { name: "New Y", category: "Mujeres", price: "$60.00", image: "../img/new y.jpg" },
+        { name: "Happy", category: "Mujeres", price: "$60.99", image: "../img/happy_frente.jpg" },
+        { name: "Celestial", category: "Mujeres", price: "$15.99", image: "../img/celestial_frente.jpg" },
+        { name: "Brightness", category: "Mujeres", price: "$35.99", image: "../img/brightness_frente.jpg" },
+        { name: "Kitty H", category: "Mujeres", price: "$55.65", image: "../img/kitty h_frente.jpg" },
+        { name: "Nike NK", category: "Mujeres", price: "$80.95", image: "../img/nike nk_frente.jpg" },
+        { name: "MC Light", category: "Infantiles", price: "$15.99", image: "../img/mc lighting_frente.jpg" },
+        { name: "FG Shark", category: "Infantiles", price: "$14.49", image: "../img/fg shark_frente.jpg" },
+        { name: "Net Spiderman", category: "Infantiles", price: "$16.50", image: "../img/net spider_frente.jpg" },
+        { name: "Polk Pony", category: "Infantiles", price: "$11.00", image: "../img/polk pony_frente.jpg" },
+        { name: "Electro Snap", category: "Hombres", price: "$18.35", image: "../img/electro snap_lado.jpg" },
+        { name: "Rainbow CR", category: "Mujeres", price: "$13.50", image: "../img/rainbow cr_lado.jpg" },
+        { name: "Emal Smile", category: "Mujeres", price: "$12.00", image: "../img/emal smile_lado.jpg" },
+        { name: "Pink Glam", category: "Mujeres", price: "$14.40", image: "../img/pink glam_lado.jpg" },
+        { name: "Storm Raider", category: "Hombres", price: "$30.99", image: "../img/storm raider_lado.jpg" },
+        { name: "Hexa Navy", category: "Hombres", price: "$30.40", image: "../img/hexa navy_lado.jpg" },
+        { name: "Red Blaze", category: "Hombres", price: "$38.99", image: "../img/red blaze_lado.jpg" },
+        { name: "Desert Nomad", category: "Hombres", price: "$37.99", image: "../img/desert nomad_lado.jpg" },
+        { name: "Shadow Hole", category: "Hombres", price: "$40.00", image: "../img/shadow hole_lado.jpg" },
+        { name: "Eco Explorer", category: "Hombres", price: "$39.99", image: "../img/eco explorer_lado.jpg" },
+        { name: "Urban Sunset", category: "Mujeres", price: "$37.80", image: "../img/urban sunset_lado.jpg" },
+        { name: "Gold Hype", category: "Mujeres", price: "$42.99", image: "../img/gold hype_lado.jpg" }
+    ];
+
+    function searchProducts() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let productCards = document.getElementsByClassName("product-card");
+        let sectionTitle = document.getElementById("sectionTitle");
+        let noResults = document.getElementById("noResults");
+        let found = false;
+
+        // Si el input está vacío, mostrar todos los productos de la página
+        if (input === "") {
+            for (let i = 0; i < productCards.length; i++) {
+                productCards[i].style.display = "";
+            }
+            sectionTitle.style.display = "";
+            noResults.style.display = "none";
+            return;
+        }
+
+        // Ocultar todos los productos primero
+        for (let i = 0; i < productCards.length; i++) {
+            productCards[i].style.display = "none";
+        }
+
+        // Buscar coincidencias locales con al menos una letra
+        for (let i = 0; i < productCards.length; i++) {
+            let cardName = productCards[i].getElementsByTagName("h3")[0].innerText.toLowerCase();
+            if (cardName.includes(input)) {
+                productCards[i].style.display = "";
+                found = true;
+            }
+        }
+
+        if (found) {
+            sectionTitle.style.display = "";
+            noResults.style.display = "none";
+        } else {
+            sectionTitle.style.display = "none";
+            noResults.style.display = "block";
+        }
+    }
+
+    // Redirigir al presionar Enter (búsqueda global)
+    document.getElementById("searchInput").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            let input = this.value.toLowerCase();
+            let product = allProducts.find(p => p.name.toLowerCase().includes(input));
+            if (product) {
+                let categoryPage = {
+                    "hombres": "paguina-hombres.html",
+                    "mujeres": "paguina-mujeres.html",
+                    "infantiles": "paguina-infantil.html"
+                };
+                window.location.href = categoryPage[product.category.toLowerCase()];
+            } else {
+                alert("Producto no encontrado");
+            }
+        }
+    });
+</script>
+<script src="../js/carrito.js"></script>
+</body>
+</html>

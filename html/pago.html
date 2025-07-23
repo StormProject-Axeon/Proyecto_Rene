@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago - URBANFIT</title>
+    <link rel="stylesheet" href="../css/pago.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="paguina-principal.html" class="back-arrow"></a>
+            <div class="logo">
+                <img src="../img/logo de paguina web2.png" alt="Logo URBANFIT" class="logo-img">
+            </div>
+        </div>
+    </header>
+    <main>
+        <form class="payment-form">
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" id="direccion" value="El Salvador" readonly>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre/Apellido</label>
+                <input type="text" id="nombre" placeholder="Nombre/Apellido">
+            </div>
+            <div class="form-group">
+                <label for="telefono">Número de teléfono</label>
+                <input type="text" id="telefono" value="SV +503" readonly>
+            </div>
+            <div class="form-group">
+                <label for="referencia">Referencia</label>
+                <input type="text" id="referencia" placeholder="Apartamento, unidad, oficio, piso, etc. (opcional)">
+            </div>
+            <div class="form-group">
+                <label for="pago">Pago</label>
+                <div class="card-input">
+                    <img src="https://via.placeholder.com/30" alt="Tarjeta" class="card-icon">
+                    <input type="text" id="pago" placeholder="Número de tarjeta: 1234 1234 1234 1234">
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Enviar pago</button>
+        </form>
+    </main>
+    <footer>
+        <p>URBANFIT 2025 - Derechos reservados. Contacto: +503 2455-6764</p>
+    </footer>
+</body>
+</html>
